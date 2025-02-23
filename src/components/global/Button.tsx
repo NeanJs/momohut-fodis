@@ -2,7 +2,7 @@ import React, { Children } from "react";
 
 interface ButtonProps {
   text?: string;
-  event?: Event;
+  event?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
 }
 function Button({ text, event, children }: ButtonProps) {

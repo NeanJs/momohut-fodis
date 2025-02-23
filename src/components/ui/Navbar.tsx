@@ -99,6 +99,14 @@ import {
 import { IoMenu } from "react-icons/io5";
 
 function NavbarAlternate() {
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Menu", path: "/menu" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
     <header>
       {/* Top Bar */}
@@ -127,13 +135,19 @@ function NavbarAlternate() {
         </div>
 
         {/* Navigation Links */}
-        <ul className="hidden md:flex gap-6 items-center text-sm">
-          <li className="text-orange-500 font-bold cursor-pointer">Home +</li>
-          <li className="hover:text-orange-500 cursor-pointer">About Us</li>
-          <li className="hover:text-orange-500 cursor-pointer">Shop +</li>
-          <li className="hover:text-orange-500 cursor-pointer">Pages +</li>
-          <li className="hover:text-orange-500 cursor-pointer">Blog +</li>
-          <li className="hover:text-orange-500 cursor-pointer">Contact</li>
+        <ul className="flex space-x-6">
+          {navItems.map((item, index) => (
+            <li
+              key={index}
+              className={`cursor-pointer font-bold ${
+                item.name === "Home"
+                  ? "text-orange-500"
+                  : "hover:text-orange-500"
+              }`}
+            >
+              <Link href={item.path}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
 
         {/* Icons */}

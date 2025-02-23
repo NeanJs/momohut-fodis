@@ -7,19 +7,22 @@ const specialDishes = [
     id: 1,
     name: "Spicy Buff Momo",
     description: "Juicy buffalo momos with spicy chutney",
-    image: "/buff-momo.jpg",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk0Io8K5tq434NMnXiuEC1YSqiWsVhMQQ4iQ&s",
   },
   {
     id: 2,
     name: "Chicken Sekuwa",
     description: "Grilled Nepali-style chicken with herbs",
-    image: "/chicken-sekuwa.jpg",
+    image:
+      "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/86/98/4/BPusHQbQ5uOQ0LoXbm7B_Chicken%20Sekuwa.jpg",
   },
   {
     id: 3,
     name: "Newari Khaja Set",
     description: "Traditional Newari feast with beaten rice",
-    image: "/newari-khaja.jpg",
+    image:
+      "https://media-cdn.tripadvisor.com/media/photo-s/12/72/ae/2c/newari-khaja-set.jpg",
   },
 ];
 

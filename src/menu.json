@@ -1,0 +1,215 @@
+{
+    "menu": {
+      "non_veg_momo": {
+        "base": {
+          "name": "Steam Chicken Momo",
+          "price": "$12.99"
+        },
+        "variations": {
+          "price_addition": "$1.99",
+          "options": [
+            "Fried",
+            "Pan-Fried",
+            "Crispy",
+            "Jhol",
+            "Chat",
+            "Butter",
+            "Schezwan"
+          ]
+        }
+      },
+      "veg_momo": {
+        "base": {
+          "name": "Steam Veg Momo",
+          "price": "$11.99"
+        },
+        "variations": {
+          "price_addition": "$1.99",
+          "options": [
+            "Fried",
+            "Pan-Fried",
+            "Crispy",
+            "Jhol",
+            "Chat",
+            "Butter",
+            "Schezwan"
+          ]
+        }
+      },
+      "veg_appetizers": [
+        {
+          "name": "Chatpat (V)",
+          "description": "Roasted or fried ingredients in puffed rice and chickpeas, with flavorful spices, onions, and cucumbers.",
+          "price": "$9.99"
+        },
+        {
+          "name": "Chinese Bhel (V)",
+          "description": "Famous street-style snack with fresh onions, cucumber, and herbs.",
+          "price": "$10.99"
+        },
+        {
+          "name": "Spicy Mustang Aloo (V)",
+          "description": "Spiced potato wedges made with local spices from the Mustang region in Nepal.",
+          "price": "$11.99"
+        },
+        {
+          "name": "Onion Pakoda (V)",
+          "description": "Fried battered golden fritters made with fresh onion.",
+          "price": "$11.99"
+        },
+        {
+          "name": "Aloo Achar (V)",
+          "description": "Potatoes infused with the flavor of fenugreek, combined with spicy chilies, aromatic onions, and garlic.",
+          "price": "$10.99"
+        },
+        {
+          "name": "Bhatmas Sadeko (V)",
+          "description": "Roasted and marinated soybean snack with spring onions and chilies.",
+          "price": "$10.99"
+        }
+      ],
+      "non_veg_appetizers": [
+        {
+          "name": "Chicken Sekuwa",
+          "description": "Marinated chicken skewers in Nepalese spice blend.",
+          "price": "$14.99"
+        },
+        {
+          "name": "Chicken Choila",
+          "description": "Boneless grilled meat with chili, garlic, ginger, green onion infused in mustard oil.",
+          "price": "$11.99"
+        },
+        {
+          "name": "Lamb Tass",
+          "description": "Tender slices of boneless lamb marinated in traditional Nepali herbs and spices, slow-cooked to perfection.",
+          "price": "$13.99"
+        },
+        {
+          "name": "Chilly Chicken",
+          "description": "Sweet, spicy, and slightly sour crispy chicken with bell peppers, garlic, soy sauce.",
+          "price": "$12.99"
+        },
+        {
+          "name": "Prawn",
+          "options": ["Garlic Sauté", "Chilly Style"],
+          "price": "$16.99"
+        },
+        {
+          "name": "Wings",
+          "options": ["Hot & Sour", "Salt & Pepper"],
+          "price": "$16.99"
+        },
+        {
+          "name": "Chilly Fish",
+          "description": "Crispy fish with bell peppers, garlic, soy sauce, and sweet, spicy sauce.",
+          "price": "$12.99"
+        },
+        {
+          "name": "Popcorn Chicken",
+          "variations": [
+            { "type": "Plain", "price": "$13.99" },
+            { "type": "Schezwan", "price": "$14.99" }
+          ]
+        }
+      ],
+      "veg_mains": [
+        {
+          "name": "Manchurian (V)",
+          "description": "Veggie balls in a flavorful sauce with hot, sweet, sour, and salty flavors.",
+          "price": "$12.99"
+        },
+        {
+          "name": "Yellow Dal Tadka (V)",
+          "description": "Slow-cooked yellow lentils with onion and tomato, finished with a tempering made of ghee and spices.",
+          "price": "$14.99"
+        },
+        {
+          "name": "Raioo (V)",
+          "description": "Stir-fried mustard greens with garlic and ginger.",
+          "price": "$13.99"
+        },
+        {
+          "name": "Aloo Mattar Paneer",
+          "description": "Cottage cheese, potatoes, and green peas simmered in a tomato-onion gravy with aromatic house spices and herbs.",
+          "price": "$14.99"
+        },
+        {
+          "name": "Aloo Bodi Tama (V)",
+          "description": "Black-eyed peas, fermented bamboo shoots, and potatoes in light Himalayan spices; a typical Nepali taste.",
+          "price": "$13.99"
+        },
+        {
+          "name": "Masala Pasta",
+          "description": "Tomato-based pasta tossed with mixed vegetables in Indian spices.",
+          "price": "$13.99"
+        }
+      ],
+      "non_veg_mains": [
+        {
+          "name": "Chicken Manchurian",
+          "description": "Chicken balls in a flavorful sauce with hot, sweet, sour, and salty flavors.",
+          "price": "$14.99"
+        },
+        {
+          "name": "Chicken Chettinad",
+          "description": "Chicken prepared with freshly ground coconut and a variety of spices; highly rated.",
+          "price": "$15.99"
+        },
+        {
+          "name": "Village Goat Curry",
+          "description": "Traditional village-style goat cooked in whole spices and mustard oil.",
+          "price": "$16.99"
+        },
+        {
+          "name": "Butter Chicken",
+          "description": "Spiced chicken cubes simmered in creamy tomato sauce; an absolute favorite.",
+          "price": "$14.99"
+        },
+        {
+          "name": "Chicken Masala Pasta",
+          "description": "Tomato-based pasta tossed with mixed vegetables and chicken in Indian spices.",
+          "price": "$14.99"
+        }
+      ],
+      "chowmein": [
+        { "name": "Veg Chowmein", "price": "$13.99" },
+        { "name": "Chicken Chowmein", "price": "$14.99" },
+        { "name": "Mix Chowmein", "price": "$15.99" },
+        { "name": "Egg Chowmein", "price": "$14.99" }
+      ],
+      "rice_fried_rice": [
+        { "name": "Plain (Jeera)", "price": "$4.99" },
+        { "name": "Egg Fried Rice", "price": "$13.99" },
+        { "name": "Chicken Fried Rice", "price": "$14.99" },
+        { "name": "Mix Fried Rice", "price": "$15.99" },
+        { "name": "Veg Fried Rice", "price": "$12.99" },
+        {
+          "name": "Calcutta Chicken Biryani",
+          "description": "A delicious combination of rice, chicken, potatoes, and eggs, cooked in the Calcutta style.",
+          "price": "$15.99"
+        },
+        {
+          "name": "Goat Biryani",
+          "description": "Spiced and fragrant layers of biryani rice centered with juicy, tender goat meat and spices.",
+          "price": "$17.99"
+        }
+      ],
+      "breads": [
+        { "name": "Roti (V)", "price": "$1.99" },
+        { "name": "Paratha (Ghee)", "price": "$4.99" },
+        { "name": "Aloo Paratha", "price": "$5.99" },
+        { "name": "Naan", "price": "$2.49" },
+        { "name": "Garlic Naan", "price": "$3.49" }
+      ],
+      "sides": [
+        { "name": "Daikon Radish Achar (V)", "price": "$3.99" },
+        { "name": "Crunchy Carrot Chili Pickle (V)", "price": "$3.99" },
+        { "name": "Green Apple Pickle (V)", "price": "$4.99" },
+        { "name": "Mint Raita", "price": "$2.99" },
+        { "name": "House-made Hot Sauce (V)", "price": "$1.99" },
+        { "name": "Papad (V) (2 pcs)", "price": "$3.99" },
+        { "name": "Masala Mayo", "price": "$1.99" }
+      ]
+    }
+  }
+  

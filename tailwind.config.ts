@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "momo_red": "#CC3233", // Customize as per the brand
+        "momo_gray": "#333333",
       },
     },
   },

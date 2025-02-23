@@ -1,21 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.features > div {
+  @apply mx-auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.img {
+  @apply absolute w-[350px] -z-10 h-[450px] overflow-hidden bg-center bg-cover flex items-center;
+  background-image: url("https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?q=80&w=2958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+.img> img {
+  @apply w-4/5;
+  animation: 5s spin infinite linear;
+}
+
+@keyframes spin {
+  from{
+    rotate: 0deg;
+  }
+  to{
+    rotate: 360deg;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}

@@ -1,7 +1,7 @@
 import React from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
-import { MenuItem } from "../MenuItem";
-import { FaHeart, FaMinus, FaPlus } from "react-icons/fa6";
+
+import { FaMinus, FaPlus } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { LuSoup } from "react-icons/lu";
 
@@ -67,7 +67,12 @@ const BestSellers = () => {
 
 export default BestSellers;
 interface MenuItemProps {
-  item: Object;
+  item: {
+    name: String;
+    price: String;
+    description: String;
+    image: String;
+  };
   addOns: Boolean;
   className: String;
 }
@@ -95,7 +100,7 @@ export const MenuItemCard = ({ item, addOns, className }: MenuItemProps) => {
           src={
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvJnlG8BRROeCbvzcieUfxSM1qNeh0pH2XQQ&s"
           }
-          alt={item.name}
+          alt=""
           className="rounded-full object-cover size-40"
         />
       </div>

@@ -10,13 +10,13 @@ const Reservation = () => {
             Check Availability
           </h2>
         </div>
-        <div className=" bg-white p-6 rounded-lg shadow-md w-full mx-auto h-full">
+        <div className=" bg-white p-6  shadow-md w-full mx-auto h-full">
           <p className="text-gray-700">Monday - Friday: 12:00 PM - 10:00 PM</p>
           <p className="text-gray-700">
             Saturday - Sunday: 10:00 AM - 11:00 PM
           </p>
           <p className="mt-4 font-semibold">Call Us: (123) 456-7890</p>
-          <button className="mt-4 bg-momo_red text-white px-6 py-3 rounded-lg hover:bg-red-700">
+          <button className="mt-4 bg-momo_red text-white px-6 py-3  hover:bg-red-700">
             Reserve Now
           </button>
         </div>

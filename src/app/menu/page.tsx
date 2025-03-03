@@ -1,6 +1,6 @@
 import Newsletter from "@/components/Newsletter";
 import Quality from "@/components/Quality";
-import SpecialsMenu from "@/components/SpecialMenu";
+import SpecialsMenu from "@/components/PopularItems";
 import Banner from "@/components/global/Banner";
 
 export default function MenuPage() {

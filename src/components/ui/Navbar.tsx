@@ -106,9 +106,9 @@ function NavbarAlternate() {
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
-
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <header>
+    <header className="relative">
       {/* Top Bar */}
       <div className="bg-red-600 text-white text-sm py-2 flex justify-between px-6 items-center">
         <span className="flex items-center gap-2">
@@ -135,7 +135,13 @@ function NavbarAlternate() {
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex space-x-6">
+        <ul
+          className={`md:flex gap-6 items-center text-sm z-10 ${
+            menuOpen
+              ? "flex flex-col absolute top-[100%] left-0 w-full bg-black p-4"
+              : "hidden md:flex"
+          }`}
+        >
           {navItems.map((item, index) => (
             <li
               key={index}
@@ -159,7 +165,10 @@ function NavbarAlternate() {
               0
             </span>
           </div>
-          <IoMenu className="cursor-pointer text-lg md:hidden" />
+          <IoMenu
+            className="cursor-pointer text-lg md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
         </div>
       </nav>
     </header>

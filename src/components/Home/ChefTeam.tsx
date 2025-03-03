@@ -20,7 +20,7 @@ const ChefTeam = () => {
             {chefs.map((chef) => (
               <div
                 key={chef.id}
-                className="bg-white shadow-lg rounded-lg p-4 text-center"
+                className="bg-white shadow-lg  p-4 text-center"
               >
                 <img
                   src={chef.image}

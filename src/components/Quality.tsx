@@ -1,3 +1,4 @@
+import Button from "./global/Button";
 import { BodyWrapper } from "./ui/Wrapper";
 import { FcCheckmark } from "react-icons/fc";
 
@@ -6,7 +7,7 @@ const Quality = () => {
     <BodyWrapper
       className="body-wrapper bg-cover bg-center py-24 px-6 md:px-12 lg:px-20 flex flex-col items-center text-white"
       background={
-        "https://momohut.ca/wp-content/uploads/2022/11/footer_bg_3.jpg"
+        "url('https://momohut.ca/wp-content/uploads/2022/11/footer_bg_3.jpg')"
       }
     >
       <div className="max-w-3xl text-center">
@@ -48,9 +49,9 @@ const Quality = () => {
             Commitment to Hygiene & Excellence
           </li>
         </ul>
-        <button className="mt-8 px-6 py-3 text-lg font-semibold bg-primary text-white rounded-2xl shadow-lg transition-transform hover:scale-105">
+        <Button className="mt-8 px-6 py-3 text-lg font-semibold bg-primary text-white rounded-2xl shadow-lg transition-transform hover:scale-105">
           View Our Menu
-        </button>
+        </Button>
       </div>
     </BodyWrapper>
   );

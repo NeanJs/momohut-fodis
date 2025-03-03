@@ -5,6 +5,7 @@ interface BodyWrapperProps {
   children: React.ReactNode;
   className?: string;
   background?: string;
+  backgroundColor?: string;
 }
 interface ContentWrapperProps {
   children: React.ReactNode;
@@ -18,14 +19,8 @@ const BodyWrapper: React.FC<BodyWrapperProps> = ({
 }) => {
   return (
     <div
-      style={{
-        background: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-      className={`w-full bg-cover bg-no-repeat overflow-hidden py-20 ${
-        className || ""
-      }`}
+      className={`w-full h-full overflow-hidden py-20 ${className}`}
+      style={{ background: background }}
     >
       {children}
     </div>
@@ -38,7 +33,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
 }) => {
   return (
     <div
-      className={`w-[80%] h-full items-center justify-center mx-auto flex flex-wrap ${
+      className={`w-[90%] md:w-[80%] h-full items-center justify-center mx-auto flex flex-wrap ${
         className || ""
       }`}
     >

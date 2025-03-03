@@ -71,7 +71,7 @@ export function Team() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition-all duration-300"
+              className="bg-white p-6  shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition-all duration-300"
             >
               <img
                 src={member.image}

@@ -1,21 +1,22 @@
 import React from "react";
 import { BodyWrapper, ContentWrapper } from "./ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
+import Button from "./global/Button";
 
 const AboutUs = () => {
   return (
-    <BodyWrapper className="flex items-center justify-between h-[60vh] bg-white relative">
-      <ContentWrapper className="flex flex-col space-y-4">
-        <div className="w-2/4 text-center">
-          <div className="flex items-center gap-2 justify-center text-momo_red font-semibold">
+    <BodyWrapper className="flex items-center justify-between bg-white relative mt-40 min-h-[60vh]">
+      <ContentWrapper className="flex flex-col space-y-4 ">
+        <div className=" md:w-2/4 text-center leading-loose flex flex-col items-center">
+          <div className="flex flex-row gap-2 font-extrabold text-md uppercase text-momo_red items-center">
             <GiKnifeFork />
             <span>About Us</span>
             <GiKnifeFork />
           </div>
-          <h2 className="text-3xl font-bold text-primary">
-            Journey of Momohut
+          <h2 className="text-xl md:text-4xl font-extrabold text-primary leading-relaxed">
+            Journey of Momohut - Variety of Falvours at One Place
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm md:text-md text-gray-600 leading-snug">
             The legacy continues with the grand re-opening of BC’s first-ever
             Nepalese restaurant, Café Kathmandu, serving customers since 2006.
             Now, after a decade of operation, the establishment is rebranding
@@ -24,18 +25,22 @@ const AboutUs = () => {
             proudly welcomes everyone to experience the best of Nepalese cuisine
             at its Fraser Street location in Vancouver.
           </p>
-          <button className="px-6 py-2 bg-red-500 text-white font-semibold rounded-md mt-4 hover:bg-red-600">
-            Learn More
-          </button>
+          <Button text="Learn More" />
         </div>
       </ContentWrapper>
 
-      <div className="img left-0 rounded-tr-full rounded-br-full justify-end">
-        <img src="bowl.png" />
-      </div>
-      <div className="img right-0 rounded-tl-full rounded-bl-full justify-start">
-        <img src="bowl.png" />
-      </div>
+      <div className="img img-left left-0 rounded-tr-full rounded-br-full "></div>
+      <div className="img img-right right-0 rounded-tl-full rounded-bl-full"></div>
+
+      <img
+        src="https://gramentheme.com/wp/fodis/wp-content/uploads/2024/12/aboutShape1_6.png"
+        className="absolute right-24 animate-spin md:block hidden"
+      />
+      <img
+        src="https://gramentheme.com/wp/fodis/wp-content/uploads/2024/12/aboutShape1_3.png"
+        className="absolute left-24 animate-spin md:block
+         hidden"
+      />
     </BodyWrapper>
   );
 };

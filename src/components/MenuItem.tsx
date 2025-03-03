@@ -5,7 +5,7 @@ interface MenuItemProps {
   title: string;
   description?: string;
   price?: string;
-  buttonText: string;
+  buttonText?: string;
 }
 
 export const MenuItem = ({
@@ -16,16 +16,16 @@ export const MenuItem = ({
   buttonText,
 }: MenuItemProps) => {
   return (
-    <div className="bg-white text-black rounded-lg shadow-lg w-80 flex flex-col items-center p-4">
+    <div className="bg-white text-black  shadow-lg w-full md:w-80 flex flex-col items-center p-4">
       <img
         src={image}
         alt={title}
-        className="w-full h-48 object-cover rounded-lg"
+        className="w-full h-48 object-cover "
       />
       <h3 className="text-xl font-semibold mt-4">{title}</h3>
       <p className="text-sm text-gray-600 mt-2">{price}</p>
       <p className="text-gray-600 text-center mt-2">{description}</p>
-      <Button text={buttonText} />
+      {buttonText && <Button text={buttonText} />}
     </div>
   );
 };

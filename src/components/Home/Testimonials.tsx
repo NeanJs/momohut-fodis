@@ -1,7 +1,6 @@
 import React from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 
-
 const testimonials = [
   {
     id: 1,
@@ -26,7 +25,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <BodyWrapper>
+    <BodyWrapper className="bg-gray-800">
       <ContentWrapper>
         <section className="py-16 text-center">
           <h2 className="text-3xl font-bold text-primary">
@@ -36,7 +35,7 @@ const Testimonials = () => {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-white shadow-lg rounded-lg p-6 text-center"
+                className="bg-white shadow-lg  p-6 text-center"
               >
                 <img
                   src={testimonial.image}

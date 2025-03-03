@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 import { MenuItem } from "../MenuItem";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 const popularItems = [
   {
     id: 1,
@@ -35,24 +37,32 @@ const popularItems = [
 
 const PopularItems = () => {
   return (
-    <BodyWrapper>
+    <BodyWrapper backgroundColor="#F3F1EA">
       <ContentWrapper>
-        <section className="py-16 text-center">
-          <h2 className="text-3xl font-bold text-primary">
-            Popular Food Items
-          </h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {popularItems.map((item) => (
+        <h2 className="text-3xl font-bold text-center text-primary">
+          Popular Food Items
+        </h2>
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
+        >
+          {popularItems?.map((item) => (
+            <SwiperSlide key={item.id}>
               <MenuItem
                 key={item.id}
                 title={item.name}
                 price={item.price}
+                description="lorem ipsum nos vamos a la playa"
                 image={item.image}
-                buttonText="Order Now"
               />
-            ))}
-          </div>
-        </section>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ContentWrapper>
     </BodyWrapper>
   );

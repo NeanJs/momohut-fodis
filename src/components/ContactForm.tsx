@@ -60,7 +60,7 @@ const ContactForm = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                  className="w-full p-3 mt-2 border border-gray-300  focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Name"
                 />
                 {errors.name && (
@@ -77,7 +77,7 @@ const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                  className="w-full p-3 mt-2 border border-gray-300  focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Email"
                 />
                 {errors.email && (
@@ -95,7 +95,7 @@ const ContactForm = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                className="w-full p-3 mt-2 border border-gray-300  focus:ring-2 focus:ring-primary focus:outline-none"
                 placeholder="Subject"
               />
               {errors.subject && (
@@ -112,7 +112,7 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                className="w-full p-3 mt-2 border border-gray-300  focus:ring-2 focus:ring-primary focus:outline-none"
                 placeholder="Your Message"
               />
               {errors.message && (
@@ -122,7 +122,7 @@ const ContactForm = () => {
 
             <button
               type="submit"
-              className="w-full md:w-auto bg-primary text-white font-semibold px-6 py-3 rounded-2xl shadow-md hover:scale-105 transition-transform bg-momo_red"
+              className="w-full md:w-auto bg-primary text-white font-semibold px-6 py-3 shadow-md hover:scale-105 transition-transform bg-momo_red"
             >
               Send Message
             </button>

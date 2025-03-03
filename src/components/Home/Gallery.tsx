@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
-
+// @ts-ignore
+import Slider from "react-slick"; // Importing the react-slick carousel
 const galleryImages = [
   {
     id: 1,
@@ -35,21 +37,42 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    overflow: "visible",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <BodyWrapper>
       <ContentWrapper>
         <section className="py-16 text-center">
           <h2 className="text-3xl font-bold text-primary">Gallery</h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {galleryImages.map((image) => (
-              <div
-                key={image.id}
-                className="overflow-hidden rounded-lg shadow-lg"
-              >
+          <div className="columns-2 md:columns-3 w-full space-y-4">
+            {galleryImages.map((image, index) => (
+              <div key={image.id} className="shadow-lg w-auto h-auto overflow-hidden group cursor-pointer">
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform transform hover:scale-105"
+                  className="size-auto object-cover group-hover:scale-125 ease-linear duration-300"
                 />
               </div>
             ))}

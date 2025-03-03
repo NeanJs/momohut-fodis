@@ -7,6 +7,7 @@ import Slider from "react-slick"; // Importing the react-slick carousel
 import { BodyWrapper, ContentWrapper, FlexibleWrapper } from "./ui/Wrapper";
 import { CiForkAndKnife } from "react-icons/ci";
 import { GiKnifeFork } from "react-icons/gi";
+import { MenuItemCard } from "./Home/BestSeller";
 
 const foods = [
   {
@@ -109,21 +110,25 @@ const foods = [
   },
 ];
 
-const SpecialsMenu = () => {
-  const MenuItem = ({ image, price, name, orderlink }: any) => {
+const PopularItems = () => {
+  const MenuItem = ({ item }: any) => {
     return (
-      <div className="bg-white rounded-lg shadow-lg w-72 h-fit p-4 my-4 grid place-items-center">
-        <img
-          src={image}
-          alt="Food Item"
-          className="w-56 h-56 object-cover rounded-full"
-        />
-        <div className="p-4">
-          <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
-          <p className="text-gray-600">${price}</p>
-          <button className="mt-4 bg-momo_red text-white px-4 py-2 rounded-lg hover:bg-red-700">
-            Add to Cart
-          </button>
+      <div className="relative shadow-lg transition-all size-60 flex flex-col rounded-lg justify-center group overflow-hidden my-4 bg-white">
+        <div className="flex justify-center z-10">
+          <img
+            src={
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvJnlG8BRROeCbvzcieUfxSM1qNeh0pH2XQQ&s"
+            }
+            alt={item.name}
+            className="rounded-full object-cover size-24"
+          />
+        </div>
+        <div className="text-center mt-4 z-10 flex flex-col gap-1">
+          <h3 className="font-semibold text-lg group-hover:">{item.name}</h3>
+          <p className="text-sm opacity-70 group-hover:">lorem ipsum dolor</p>
+          <p className={`mt-2 font-bold text-momo_red group-hover: text-xl`}>
+            ${item.price}
+          </p>
         </div>
       </div>
     );
@@ -131,17 +136,18 @@ const SpecialsMenu = () => {
 
   const settings = {
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     cssEase: "linear",
+    overflow: "visible",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
@@ -154,9 +160,25 @@ const SpecialsMenu = () => {
   };
 
   return (
-    <BodyWrapper className="bg-gray-50 py-20">
+    <BodyWrapper
+      className=" py-20 relative popular-items bg-momo_bg"
+      backgroundColor="#F3F1EA"
+    >
+      <img
+        className="absolute bottom-0 left-0 "
+        src="https://gramentheme.com/wp/fodis/wp-content/uploads/2024/12/bestFoodItemsShape1_1.png"
+        alt=""
+      />
+      <img
+        src="https://gramentheme.com/wp/fodis/wp-content/uploads/2024/12/bestFoodItemsShape1_2.png"
+        className="absolute top-8 right-10 scale-150"
+        alt=""
+      />
       <ContentWrapper>
-        <div className="container mx-auto text-center" data-aos="fade-up">
+        <div
+          className="relative container mx-auto text-center "
+          data-aos="fade-up"
+        >
           <div className="flex items-center gap-2 justify-center text-momo_red font-semibold">
             <GiKnifeFork />
             <span>Best Food</span>
@@ -166,16 +188,9 @@ const SpecialsMenu = () => {
             Popular Food Menu
           </h2>
 
-          {/* Slick Slider for Horizontal Scroll */}
-          <Slider {...settings} className="w-full">
-            {foods.map((food, index) => (
-              <MenuItem
-                key={index}
-                image={food.image}
-                price={food.price}
-                name={food.name}
-                orderlink={food.orderlink}
-              />
+          <Slider {...settings} className="w-full z-10 " arrows={false}>
+            {foods.map((item, index) => (
+              <MenuItem key={index} item={item} />
             ))}
           </Slider>
         </div>
@@ -184,4 +199,4 @@ const SpecialsMenu = () => {
   );
 };
 
-export default SpecialsMenu;
+export default PopularItems;

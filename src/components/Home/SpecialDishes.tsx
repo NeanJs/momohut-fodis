@@ -35,7 +35,7 @@ const bestSellers = [
 
 const BestSellers = () => {
   return (
-    <BodyWrapper>
+    <BodyWrapper backgroundColor="#F3F1EA">
       <ContentWrapper>
         <section className="py-16 text-center">
           <h2 className="text-3xl font-bold text-primary">

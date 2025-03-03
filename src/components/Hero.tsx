@@ -28,7 +28,7 @@ const slides = [
     CTA: {
       title: "Explore our menu",
     },
-  image:
+    image:
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
@@ -45,13 +45,12 @@ const slides = [
 ];
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState<Number>(0);
   return (
-    <BodyWrapper className="relative w-screen h-screen md:h-[800px] overflow-hidden">
+    <BodyWrapper className="relative w-screen h-screen md:h-[800px] ">
       <img
         src="https://momohut.ca/wp-content/uploads/2022/11/feature_bg_1.png"
         alt=""
-        className="w-screen h-full object-cover scale-125 absolute -z-10 top-0 left-0"
+        className="w-screen h-full object-cover scale-125 absolute -z-10 top-0 left-0 "
       />
       <ContentWrapper className="h-full">
         <Swiper
@@ -65,8 +64,7 @@ export function Hero() {
           {slides.map((slide) => (
             <SwiperSlide key={slide.id}>
               {({ isActive }) => (
-                <div className="h-full flex items-center justify-center md:justify-between relative overflow-hidden flex-col md:flex-row">
-                  {/* Text Content with Motion Effects */}
+                <div className="h-full flex items-center justify-center md:justify-between relative overflow-hidden flex-col md:flex-row ">
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={isActive ? { opacity: 1, x: 0 } : {}}
@@ -113,7 +111,7 @@ export function Hero() {
                         ease: "easeOut",
                         delay: 0.6,
                       }}
-                      className="mt-4 bg-momo_red hover:bg-red-700 px-6 py-2 text-white rounded-lg"
+                      className="mt-4 bg-momo_red hover:bg-red-700 px-6 py-2 text-white "
                     >
                       {slide.CTA.title}
                     </motion.button>
@@ -191,7 +189,7 @@ const AlternateSwiper = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isActive ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                  className="mt-4 bg-red-600 hover:bg-red-700 px-6 py-2 text-white rounded-lg"
+                  className="mt-4 bg-red-600 hover:bg-red-700 px-6 py-2 text-white "
                 >
                   {slide.CTA.title}
                 </motion.button>

@@ -66,7 +66,12 @@ const BestSellers = () => {
 };
 
 export default BestSellers;
-export const MenuItemCard = ({ item, addOns, className }) => {
+interface MenuItemProps {
+  item: Object;
+  addOns: Boolean;
+  className: String;
+}
+export const MenuItemCard = ({ item, addOns, className }: MenuItemProps) => {
   return (
     <div
       className={`relative px-4  shadow-lg transition-all w-60 h-80 flex flex-col justify-center group overflow-hidden bg-white  ${className} ${

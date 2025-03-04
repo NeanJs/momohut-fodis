@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
-import { MenuItem } from "../MenuItem";
 
 const MenuSection = () => {
   const [category, setCategory] = useState<String>("Breakfast");
+
   const menuItems = [
     {
       category: "Breakfast",
@@ -140,10 +140,12 @@ const MenuSection = () => {
     setCategory(category);
     handleMenuItems(category);
   };
-  const [menu, setMenu] = useState<object>(menuItems[0].items);
+  const [menu, setMenu] = useState<
+    { name: string; description: string; price: string; image: string }[]
+  >(menuItems[0].items);
   const handleMenuItems = (category: String) => {
     const items = menuItems.find((item) => item.category === category);
-    setMenu(items);
+    setMenu(items ? items.items : []);
   };
   useEffect(() => handleCategory("Breakfast"), []);
   return (
@@ -170,7 +172,8 @@ const MenuSection = () => {
           </div>
           <hr className="border-t-2 border-gray-200 mb-8" />
           <div className="grid md:grid-cols-2 grid-cols-1 gap4">
-            {menu?.items?.map((item, index) => (
+            {menu.map((item: ItemProp, index: number) => (
+              //  @ts-ignore
               <MenuItem item={item} key={index} />
             ))}
           </div>
@@ -183,8 +186,13 @@ const MenuSection = () => {
 };
 
 export default MenuSection;
-
-const MenuItem = ({ item }) => {
+interface ItemProp {
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+}
+const MenuItem = (item: ItemProp) => {
   return (
     <div className="flex md:flex-row flex-col items-center justify-between h-fit  hover:shadow-md py-4">
       <div className="w-full md:w-1/4 flex items-center justify-center ">

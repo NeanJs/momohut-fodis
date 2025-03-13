@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import { FaMapPin as MapPin } from "react-icons/fa";
-
+import toast from "react-hot-toast";
 const ContactPage = () => {
   // Form state handling
   const [formData, setFormData] = useState({
@@ -26,11 +26,7 @@ const ContactPage = () => {
 
     // Simulate form submission
     setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you as soon as possible.",
-        duration: 5000,
-      });
+      toast.success("Message Sent!");
 
       setFormData({
         name: "",

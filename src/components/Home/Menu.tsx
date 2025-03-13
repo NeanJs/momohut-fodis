@@ -3,10 +3,22 @@ import React, { useEffect, useState } from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
 
-const MenuSection = () => {
-  const [category, setCategory] = useState("Breakfast");
+interface MenuItemProps {
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+}
 
-  const menuItems = [
+interface Category {
+  category: string;
+  items: MenuItemProps[];
+}
+
+const MenuSection = () => {
+  const [category, setCategory] = useState<string>("Breakfast");
+
+  const menuItems: Category[] = [
     {
       category: "Breakfast",
       items: [
@@ -135,13 +147,14 @@ const MenuSection = () => {
       ],
     },
   ];
-  const handleCategory = (category) => {
+
+  const handleCategory = (category: string) => {
     setCategory(category);
     const items = menuItems.find((item) => item.category === category);
     setMenu(items ? items.items : []);
   };
 
-  const [menu, setMenu] = useState(menuItems[0].items);
+  const [menu, setMenu] = useState<MenuItemProps[]>(menuItems[0].items);
   useEffect(() => handleCategory("Breakfast"), []);
 
   return (
@@ -178,7 +191,7 @@ const MenuSection = () => {
 
 export default MenuSection;
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item }: { item: MenuItemProps }) => {
   return (
     <div className="flex flex-col items-center bg-white shadow-md rounded-lg overflow-hidden p-4 transition-transform hover:scale-105">
       <img src={item.image} className="w-32 h-32 object-cover rounded-full" />

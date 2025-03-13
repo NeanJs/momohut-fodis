@@ -13,6 +13,9 @@ export default {
         momo_gray: "#333333",
         momo_bg: "#F3F1EA",
       },
+      clipPath: {
+        parallelogram_right: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
+      },
     },
   },
   plugins: [],

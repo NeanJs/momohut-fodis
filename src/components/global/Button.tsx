@@ -10,7 +10,7 @@ function Button({ text, event, children }: ButtonProps) {
   return (
     <button
       onClick={event}
-      className="bg-red-600 hover:bg-red-700 text-white mt-4 h-fit w-fit py-4 px-6 font-semibold uppercase"
+      className="bg-momo_red hover:bg-red-700 text-white h-fit min-w-fit p-4  font-semibold uppercase text-xs"
     >
       {children || text}
     </button>

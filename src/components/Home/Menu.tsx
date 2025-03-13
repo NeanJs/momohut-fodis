@@ -4,7 +4,7 @@ import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
 
 const MenuSection = () => {
-  const [category, setCategory] = useState<String>("Breakfast");
+  const [category, setCategory] = useState("Breakfast");
 
   const menuItems = [
     {
@@ -135,50 +135,41 @@ const MenuSection = () => {
       ],
     },
   ];
-
-  const handleCategory = (category: String) => {
+  const handleCategory = (category) => {
     setCategory(category);
-    handleMenuItems(category);
-  };
-  const [menu, setMenu] = useState<
-    { name: string; description: string; price: string; image: string }[]
-  >(menuItems[0].items);
-  const handleMenuItems = (category: String) => {
     const items = menuItems.find((item) => item.category === category);
     setMenu(items ? items.items : []);
   };
+
+  const [menu, setMenu] = useState(menuItems[0].items);
   useEffect(() => handleCategory("Breakfast"), []);
+
   return (
     <BodyWrapper className="bg-momo_bg">
       <ContentWrapper className="flex-col bg-white p-10">
-        <div className="w-full h-full">
-          <div className="text-center py-10">
-            <h2 className="text-3xl font-bold text-primary">MomoHut Menu</h2>
-          </div>
-          <div className="py-6 flex justify-center gap-16 items-center w-full flex-wrap">
-            {menuItems.map((item) => (
-              <h3
-                className={`${
-                  item.category === category ? "text-momo_red" : "text-gray-800"
-                } text-lg md:text-2xl font-semibold flex items-center gap-2 cursor-pointer`}
-                key={item.category}
-                onClick={() => handleCategory(item.category)}
-              >
-                <GiKnifeFork />
-                <span>{item.category}</span>
-                <GiKnifeFork />
-              </h3>
-            ))}
-          </div>
-          <hr className="border-t-2 border-gray-200 mb-8" />
-          <div className="grid md:grid-cols-2 grid-cols-1 gap4">
-            {menu.map((item: ItemProp, index: number) => (
-              //  @ts-ignore
-              <MenuItem item={item} key={index} />
-            ))}
-          </div>
-          {/*
-           */}
+        <div className="text-center py-10">
+          <h2 className="text-3xl font-bold text-primary">MomoHut Menu</h2>
+        </div>
+        <div className="py-6 flex justify-center gap-8 items-center flex-wrap">
+          {menuItems.map((item) => (
+            <h3
+              key={item.category}
+              className={`cursor-pointer text-lg font-semibold flex items-center gap-2 ${
+                item.category === category ? "text-momo_red" : "text-gray-800"
+              }`}
+              onClick={() => handleCategory(item.category)}
+            >
+              <GiKnifeFork />
+              <span>{item.category}</span>
+              <GiKnifeFork />
+            </h3>
+          ))}
+        </div>
+        <hr className="border-t-2 border-gray-200 mb-8" />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {menu.map((item, index) => (
+            <MenuItem item={item} key={index} />
+          ))}
         </div>
       </ContentWrapper>
     </BodyWrapper>
@@ -186,30 +177,16 @@ const MenuSection = () => {
 };
 
 export default MenuSection;
-interface ItemProp {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
-const MenuItem = (item: ItemProp) => {
+
+const MenuItem = ({ item }) => {
   return (
-    <div className="flex md:flex-row flex-col items-center justify-between h-fit  hover:shadow-md py-4">
-      <div className="w-full md:w-1/4 flex items-center justify-center ">
-        <img
-          src={item.image}
-          className="size-24 object-cover rounded-full overflow-hidden"
-        />
-      </div>
-      <div className="flex md:flex-row flex-col gap-4 items-center w-full text-center md:text-left">
-        <div className="text-block w-full flex  flex-col">
-          <h3 className="text-xl font-semibold">{item.name}</h3>
-          <p className="text-gray-400">{item.description}</p>
-        </div>
-        <p className="text-gray-600 text-xl font-semibold w-full md:w-1/4 ">
-          {item.price}
-        </p>
-      </div>
+    <div className="flex flex-col items-center bg-white shadow-md rounded-lg overflow-hidden p-4 transition-transform hover:scale-105">
+      <img src={item.image} className="w-32 h-32 object-cover rounded-full" />
+      <h3 className="text-lg font-semibold mt-3">{item.name}</h3>
+      <p className="text-gray-500 text-sm text-center px-2">
+        {item.description}
+      </p>
+      <p className="text-primary font-semibold text-lg mt-2">{item.price}</p>
     </div>
   );
 };

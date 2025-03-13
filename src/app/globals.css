@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html {
-  overflow-x: hidden;
+body {
+  overflow-x: hidden !important;
 }
 .features > div {
   @apply mx-auto;
@@ -29,4 +29,20 @@ img {
 }
 .popular-items {
   overflow: visible !important;
+}
+
+@layer utilities {
+  .parallelogram-right {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+  .parallelogram-left {
+    clip-path: polygon(2.5% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@media  (max-width:480px) {
+  html{
+    overflow-x: hidden !important;
+    padding: 0 2px;
+  }
 }

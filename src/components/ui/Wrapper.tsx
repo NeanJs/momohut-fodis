@@ -19,7 +19,7 @@ const BodyWrapper: React.FC<BodyWrapperProps> = ({
 }) => {
   return (
     <div
-      className={`w-full h-full overflow-hidden py-20 ${className}`}
+      className={`w-screen h-full  py-20 ${className}`}
       style={{ background: background }}
     >
       {children}
@@ -33,7 +33,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
 }) => {
   return (
     <div
-      className={`w-[90%] md:w-[80%] h-full items-center justify-center mx-auto flex flex-wrap ${
+      className={`w-screen md:w-[80%] h-full items-center justify-center mx-auto flex flex-wrap ${
         className || ""
       }`}
     >

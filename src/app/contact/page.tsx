@@ -13,7 +13,7 @@ export default function ContactPage() {
         backgroundImage="https://cdn.vectorstock.com/i/500p/62/99/contact-us-banner-vector-21116299.jpg"
       />
       <div className="bg-gray-100">
-        <Reservation />
+        {/* <Reservation /> */}
         <ContactForm />
       </div>
       <Newsletter />

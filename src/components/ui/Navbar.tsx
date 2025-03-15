@@ -8,9 +8,14 @@ import {
   FaSearch,
   FaClock,
   FaArrowRight,
+  FaPhoneAlt,
+  FaMapPin,
 } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
 import Link from "next/link";
+import { BiMapPin } from "react-icons/bi";
+import { ArrowRight } from "lucide-react";
+import Button from "../global/Button";
 
 function NavbarAlternate() {
   const navItems = [
@@ -44,23 +49,58 @@ function NavbarAlternate() {
       );
     };
   }, [window.location.pathname]);
+  function isRestaurantOpen(openHour, closeHour) {
+    const now = new Date();
+    const currentTime = now.getHours() * 60 + now.getMinutes(); // Convert current time to minutes
+
+    const [openH, openM] = openHour.split(":").map(Number);
+    const [closeH, closeM] = closeHour.split(":").map(Number);
+
+    const openTime = openH * 60 + openM; // Convert open time to minutes
+    const closeTime = closeH * 60 + closeM; // Convert close time to minutes
+
+    if (openTime <= closeTime) {
+      return currentTime >= openTime && currentTime <= closeTime
+        ? "Doors Open"
+        : "We will be open at 11:00 am";
+    } else {
+      return currentTime >= openTime || currentTime <= closeTime
+        ? "Doors Open"
+        : "We will be open at 11:00 am";
+    }
+  }
+
+  const openHour = "10:00";
+  const closeHour = "22:00";
+
+  isRestaurantOpen(openHour, closeHour);
+
   return (
     <header className="relative ">
-      <div className="navigation flex flex-row items-center justify-between md:justify-start min-h-fit h-32 bg-white  ">
+      <div className="navigation flex flex-row items-center justify-between md:justify-start min-h-fit h-32 bg-  ">
         <div className="absolute bg-white w-80 h-full left-0 -skew-x-12 lg:flex hidden"></div>
-        <div className="logo-block h-full w-72 flex flex-col items-center justify-center relative lg:translate-x-[20px] ">
+        <div className="logo-block h-24 w-72 flex flex-col items-center justify-center relative lg:translate-x-[20px] ">
           <img src="logo.png" className="h-auto lg:w-64 md:w-56 sm:w-48 w-40" />
         </div>
 
-        <div className="nav-blocks flex-col items-center h-full w-full lg:ml-16 flex ">
-          <div className="headline-block h-2/5 w-full bg-momo_red text-white text-sm items-center hidden md:flex">
+        <div className="nav-blocks flex-col items-center h-full w-full lg:ml-18 flex ">
+          <div className="headline-block h-1/5 py-2 w-full bg-momo_red text-white text-sm items-center hidden md:flex">
             <div className="headline flex justify-between items-center w-full lg:px-12 md:px-6">
-              <span className="flex items-center gap-2">
-                <span className="text-lg">
+              <div className="flex contact-primary items-center gap-4 text-sm ml-16">
+                <div className="flex items-center gap-2">
                   <FaClock />
-                </span>
-                09:00 am - 06:00 pm
-              </span>
+                  <span>{isRestaurantOpen("11:30", "23:00")}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaPhoneAlt />
+                  <span>+1 236 456 7890</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaMapPin />
+                  <span>622 W Pender St, Vancouver, BC</span>
+                </div>
+              </div>
+
               <div className="flex gap-4 items-center">
                 <span>Follow Us:</span>
                 <FaFacebookF className="cursor-pointer hover:text-gray-300" />
@@ -69,24 +109,30 @@ function NavbarAlternate() {
               </div>
             </div>
           </div>
-          <div className="navlinks-block w-full h-3/5 flex justify-between items-center md:bg-[#010F1C] bg-white">
-            <div className="headline flex justify-end md:justify-between lg:px-12 md:px-6 items-center w-full">
+          <div className="navlinks-block w-full h-4/5 flex justify-between items-center md:bg-[#010F1C] bg-white">
+            <div className="headline flex justify-end md:justify-between lg:px-12 md:px-6 items-center w-full ml-16">
               <ul className="md:flex gap-12 items-center text-sm z-10 text-white h-full hidden">
                 {navItems.map((item, index) => (
                   <li
                     key={index}
-                    className={`cursor-pointer text-white font-medium text-lg ${
-                      item.path === activeLink
-                        ? "text-momo_red"
-                        : "hover:text-momo_red"
-                    }`}
+                    className={`cursor-pointer text-white font-medium text-lg hover:text-momo_red group relative`}
                   >
                     <Link
+                      className={` ${
+                        item.path === activeLink
+                          ? "text-momo_red text-lg"
+                          : "hover:text-momo_red"
+                      }`}
                       href={item.path}
                       onClick={() => setActiveLink(item.path)}
                     >
                       {item.name}
                     </Link>
+                    <span
+                      className={`absolute bottom-0 bg-momo_red mt-1  left-0 h-[2px] group-hover:w-full ease-linear duration-300  ${
+                        item.path == activeLink ? "w-full" : "w-0"
+                      }`}
+                    ></span>
                   </li>
                 ))}
               </ul>
@@ -106,6 +152,10 @@ function NavbarAlternate() {
                     onClick={() => setMenuOpen(!menuOpen)}
                   />
                 </div>
+                <Button className="flex w-full items-center">
+                  <span>Order Now</span>
+                  <ArrowRight />
+                </Button>
               </div>
             </div>
           </div>
@@ -139,7 +189,7 @@ function NavbarAlternate() {
             <img src="logo.png" className="h-auto w-64" />
           </div>
           <div className="headline flex justify-end items-center w-full bg-white relative h-full">
-            <ul className=" mx-auto md:flex hidden p-4 gap-4 relative flex-row top-0 items-center justify-center">
+            <ul className=" mx-auto md:flex hidden p-4 gap-20 relative flex-row top-0 items-center justify-center">
               {navItems.map((item, index) => (
                 <li
                   key={index}

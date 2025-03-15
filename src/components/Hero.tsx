@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/thumbs";
 import { motion } from "framer-motion";
 import { BodyWrapper, ContentWrapper } from "./ui/Wrapper";
 
@@ -17,8 +18,7 @@ const slides = [
     CTA: {
       title: "Explore our menu",
     },
-    image:
-      "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://momohut.ca/wp-content/uploads/2023/03/Biryani.png.webp",
   },
   {
     id: 2,
@@ -28,8 +28,7 @@ const slides = [
     CTA: {
       title: "Explore our menu",
     },
-    image:
-      "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://momohut.ca/wp-content/uploads/2023/03/Momo3.png.webp",
   },
   {
     id: 3,
@@ -39,30 +38,28 @@ const slides = [
     CTA: {
       title: "Reserve Now",
     },
-    image:
-      "https://images.unsplash.com/photo-1554679665-f5537f187268?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://momohut.ca/wp-content/uploads/2023/03/Chowmin.png.webp",
   },
 ];
 
 export function Hero() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
   return (
-    <BodyWrapper className="relative w-screen h-screen md:h-[800px] ">
+    <BodyWrapper className="relative w-screen h-screen md:h-[800px]">
       <img
-        src="https://momohut.ca/wp-content/uploads/2022/11/feature_bg_1.png"
-        alt=""
-        className="w-screen h-full object-cover scale-125 absolute -z-10 top-0 left-0 "
+        src="https://momohut.ca/wp-content/uploads/layerslider/projects/Home-Two-Desktop/hero_bg_2_1.png"
+        className="w-screen h-full object-cover scale-100 absolute -z-10 top-0 left-0 object-top"
       />
       <ContentWrapper className="h-full">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          pagination={{
-            clickable: true,
-          }}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          className="w-full h-full"
+          modules={[Navigation, Thumbs, Autoplay]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          thumbs={{ swiper: thumbsSwiper }}
+          onSlideChange={({ activeIndex }) => setActiveSlide(activeIndex)}
         >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.id}>
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div className="h-full flex items-center justify-center md:justify-between relative overflow-hidden flex-col md:flex-row ">
                   <motion.div
@@ -119,7 +116,7 @@ export function Hero() {
 
                   {/* Bowl Image with Motion Effects */}
                   <motion.img
-                    src="bowl.png"
+                    src={slide.image}
                     alt="Bowl"
                     className="w-[500px]"
                     initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
@@ -137,77 +134,33 @@ export function Hero() {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Thumbnails */}
       </ContentWrapper>
+      <div className=" absolute flex items-center justify-center flex-col top-0 left-0 w-32 h-full">
+        <span className="bg-gradient-to-t from-momo_red to-transparent h-16 w-[2px] rounded-b-full"></span>
+
+        <Swiper
+          // @ts-ignore
+          onSwiper={setThumbsSwiper}
+          slidesPerView={3}
+          className="mb-4 w-fit h-max"
+          direction="vertical"
+        >
+          {slides.map((src, index) => (
+            <SwiperSlide key={index} className="cursor-pointer">
+              <img
+                src={src.image}
+                alt={`Thumbnail ${index + 1}`}
+                className={`${
+                  activeSlide == index ? "border-momo_red" : "border-gray-300 opacity-75"
+                } "w-16 h-16 object-cover my-2 rounded-full border-2 hover:border-red-500 transition duration-300 ease-linear"`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <span className="bg-gradient-to-b from-momo_red to-transparent h-16 w-[2px] rounded-t-full"></span>
+      </div>
     </BodyWrapper>
   );
 }
-
-const AlternateSwiper = () => {
-  return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
-      className="w-full h-full"
-    >
-      {slides.map((slide) => (
-        <SwiperSlide key={slide.id}>
-          {({ isActive }) => (
-            <div className="h-full flex items-center justify-center md:justify-between relative overflow-hidden flex-col md:flex-row px-6">
-              {/* Text Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={isActive ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col md:w-2/4 text-gray-800 leading-loose"
-              >
-                <motion.span
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={isActive ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="text-red-600 text-2xl mb-4 font-medium tracking-wide"
-                >
-                  Special Menu Offers
-                </motion.span>
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isActive ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-                  className="text-4xl md:text-5xl font-bold"
-                >
-                  {slide.title}
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isActive ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-                  className="text-lg md:text-xl mt-2"
-                >
-                  {slide.subtitle}
-                </motion.p>
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isActive ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                  className="mt-4 bg-red-600 hover:bg-red-700 px-6 py-2 text-white "
-                >
-                  {slide.CTA.title}
-                </motion.button>
-              </motion.div>
-              {/* Image */}
-              <motion.img
-                src={slide.image}
-                alt="Slide Image"
-                className="w-[500px] hidden md:block"
-                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                animate={isActive ? { opacity: 1, scale: 1, rotate: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                whileHover={{ scale: 1.05, rotate: 5 }}
-              />
-            </div>
-          )}
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-};

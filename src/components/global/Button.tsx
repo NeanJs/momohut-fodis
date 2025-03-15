@@ -6,11 +6,11 @@ interface ButtonProps {
   event?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
 }
-function Button({ text, event, children }: ButtonProps) {
+function Button({ text, event, children, className }: ButtonProps) {
   return (
     <button
       onClick={event}
-      className="bg-momo_red hover:bg-red-700 text-white h-fit min-w-fit p-4  font-semibold uppercase text-xs"
+      className={`bg-momo_red hover:bg-red-700 text-white h-fit min-w-fit p-4  font-semibold uppercase text-xs flex ${className}`}
     >
       {children || text}
     </button>

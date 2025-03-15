@@ -87,7 +87,7 @@ const MenuSidebar = ({
                   ${
                     selectedCategory === category
                       ? "bg-red-100 text-momo_red font-medium"
-                      : "hover:bg-orange-50 text-gray-700"
+                      : "hover:bg-red-100 text-gray-700"
                   }
                   `}
                 >

@@ -1,0 +1,92 @@
+{
+  "Non-Veg Momo": [
+    {
+      "name": "Steam Chicken Momo",
+      "price": 12.99,
+      "variations": {
+        "Fried": 1.99,
+        "Pan-Fried": 1.99,
+        "Crispy": 1.99,
+        "Jhol": 1.99,
+        "Chat": 1.99,
+        "Butter": 1.99,
+        "Schezwan": 1.99
+      }
+    }
+  ],
+  "Veg Momo": [
+    {
+      "name": "Steam Veg Momo",
+      "price": 11.99,
+      "variations": {
+        "Fried": 1.99,
+        "Pan-Fried": 1.99,
+        "Crispy": 1.99,
+        "Jhol": 1.99,
+        "Chat": 1.99,
+        "Butter": 1.99,
+        "Schezwan": 1.99
+      }
+    }
+  ],
+  "Veg Appetizers": [
+    {"name": "Chatpat (V)", "price": 9.99, "description": "Roasted or fried ingredients in puffed rice and chickpeas, with flavourful spices onions, and cucumbers"},
+    {"name": "Chinese Bhel (V)", "price": 10.99, "description": "Famous street style snack with fresh onions, cucumber and herbs"},
+    {"name": "Spicy Mustang Aloo(V)", "price": 11.99, "description": "Spiced potato wedges made with local spices in Mustang region in Nepal."},
+    {"name": "Onion Pakoda (V)", "price": 11.99, "description": "Fried battered golden fritters made with fresh onion"},
+    {"name": "Aloo Achar (V)", "price": 10.99, "description": "Potato infused with the flavour of fenugreek, combined with spicy chillies, aromatic onions and garlic"},
+    {"name": "Bhatmas Sadeko (V)", "price": 10.99, "description": "Roasted and marinated soyabean snack with spring onions and chillies"}
+  ],
+  "Non-Veg Appetizers": [
+    {"name": "Chicken Sekuwa", "price": 14.99, "description": "Marinated chicken skewers in Nepalese spice blend"},
+    {"name": "Chicken Choila", "price": 11.99, "description": "Boneless grilled meat with chilly, garlic, ginger, green onion infused in mustard oil"},
+    {"name": "Lamb Tass", "price": 13.99, "description": "Tender slices of boneless lamb marinated in traditional Nepali herbs and spices, then slow-cooked"},
+    {"name": "Chilly Chicken", "price": 12.99, "description": "Sweet, spicy and slightly sour crispy chicken with bell peppers, garlic, soya sauce"},
+    {"name": "Prawn", "price": 16.99, "variations": ["Garlic Saute", "Chilly Style"]},
+    {"name": "Wings", "price": 16.99, "variations": ["Hot & Sour", "Salt & Pepper"]},
+    {"name": "Chilly Fish", "price": 12.99, "description": "Crispy fish with bell peppers, garlic, soya sauce and sweet, spicy sauce"},
+    {"name": "Popcorn Chicken-Plain", "price": 13.99},
+    {"name": "Popcorn Chicken-Schezwan", "price": 14.99}
+  ],
+  "Mains - Veg": [
+    {"name": "Manchurian (V)", "price": 12.99, "description": "Veggies formed into balls, dunked in a flavour-packed sauce"},
+    {"name": "Yellow Dal Tadka (V)", "price": 14.99, "description": "Slow cooked yellow lentils finished with a tempering made of ghee and spices"},
+    {"name": "Raioo (V)", "price": 13.99, "description": "Stir-fry mustard greens with garlic and ginger"},
+    {"name": "Aloo Mattar Paneer", "price": 14.99, "description": "Cottage cheese, potatoes, and green peas in tomato, onion and house spices"},
+    {"name": "Aloo Bodi Tama (V)", "price": 13.99, "description": "Black-eyed peas, fermented bamboo shoots and potatoes in light Himalayan spices"}
+  ],
+  "Mains - Non-Veg": [
+    {"name": "Chi. Manchurian", "price": 14.99},
+    {"name": "Chi. Chettinad", "price": 15.99},
+    {"name": "Village Goat Curry", "price": 16.99},
+    {"name": "Butter Chicken", "price": 14.99},
+    {"name": "Chi. Masala Pasta", "price": 14.99}
+  ],
+  "Chowmein": [
+    {"name": "Veg Chowmein", "price": 13.99},
+    {"name": "Chicken Chowmein", "price": 14.99},
+    {"name": "Mix Chowmein", "price": 15.99},
+    {"name": "Egg Chowmein", "price": 14.99}
+  ],
+  "Rice & Fried Rice": [
+    {"name": "Plain (Jeera)", "price": 4.99},
+    {"name": "Egg Fried Rice", "price": 13.99},
+    {"name": "Chicken Fried Rice", "price": 14.99},
+    {"name": "Mix Fried Rice", "price": 15.99},
+    {"name": "Veg Fried Rice", "price": 12.99}
+  ],
+  "Breads & Sides": [
+    {"name": "Roti (V)", "price": 1.99},
+    {"name": "Paratha (Ghee)", "price": 4.99},
+    {"name": "Aloo Paratha", "price": 5.99},
+    {"name": "Naan", "price": 2.49},
+    {"name": "Garlic Naan", "price": 3.49},
+    {"name": "Daikon Radish Achar (V)", "price": 3.99},
+    {"name": "Crunchy Carrot Chilly Pickle (V)", "price": 3.99},
+    {"name": "Green Apple Pickle (V)", "price": 4.99},
+    {"name": "Mint Raita", "price": 2.99},
+    {"name": "House-made Hot Sauce (V)", "price": 1.99},
+    {"name": "Papad (V) (2pc)", "price": 3.99},
+    {"name": "Masala Mayo", "price": 1.99}
+  ]
+}

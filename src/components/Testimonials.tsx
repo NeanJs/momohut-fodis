@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import { BodyWrapper, ContentWrapper } from "./ui/Wrapper";
@@ -37,14 +38,14 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <BodyWrapper className="bg-[#181818] min-h-[60vh] h-fit relative">
+    <BodyWrapper className="bg-momo_bg min-h-[70vh] h-fit relative">
       <img
-        className="absolute -left-20 top-0 h-full object-cover rounded-tr-full border-t-momo_red border-t-8"
-        src="https://gramentheme.com/wp/fodis/wp-content/uploads/2024/12/testimonialThumb1_1.png"
+        className="absolute -left-10 top-0 w-3/5 h-full object-cover rounded-tr-full border-t-momo_red border-t-8"
+        src="https://images.unsplash.com/flagged/photo-1556742524-750f2ab99913?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
-      <ContentWrapper className="flex-col border-red-400 justify-start items-start relative overflow-hidden">
-        <div className="flex flex-col items-center md:ml-96 gap-4 w-full">
+      <ContentWrapper className="flex-col border-red-400 justify-center items-center relative overflow-hidden">
+        <div className="flex flex-col items-center gap-4 w-fit self-end ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,14 +57,14 @@ export function Testimonials() {
               <span> Testimonials</span>
               <GiKnifeFork />
             </motion.div>
-            <motion.h2 className="text-lg md:text-3xl font-bold text-white ">
+            <motion.h2 className="text-lg md:text-3xl font-bold text-momo_gray ">
               What Our Customers Say
             </motion.h2>
           </motion.div>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
-            className="w-full md:max-w-xl"
+            className="w-full md:max-w-[450px] "
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
@@ -71,7 +72,7 @@ export function Testimonials() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="bg-white p-8 shadow-lg flex flex-col items-start w-full border-t-4 border-momo_red rounded-lg"
+                  className="bg-white p-8 shadow-lg flex flex-col items-start w-full max-w-full border-t-4 border-momo_red rounded-lg relative "
                 >
                   <BsFillChatRightQuoteFill className="text-2xl md:text-5xl text-momo_red font-extrabold absolute right-8" />
                   <div className="flex items-center mb-4 gap-2">

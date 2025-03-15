@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
+import Button from "../global/Button";
+import Link from "next/link";
 
 interface MenuItemProps {
   name: string;
@@ -184,6 +186,9 @@ const MenuSection = () => {
             <MenuItem item={item} key={index} />
           ))}
         </div>
+        <Button className="fine">
+          <Link href={"/menu"}>View Full Menu</Link>
+        </Button>
       </ContentWrapper>
     </BodyWrapper>
   );

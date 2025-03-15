@@ -1,9 +1,12 @@
 "use client";
 import React from "react";
-import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
 // @ts-ignore
-import Slider from "react-slick"; // Importing the react-slick carousel
-const galleryImages = [
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BodyWrapper, ContentWrapper } from "../ui/Wrapper";
+
+const images = [
   {
     id: 1,
     src: "https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D",
@@ -40,45 +43,43 @@ const Gallery = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    overflow: "visible",
+    autoplaySpeed: 1500,
+    dots: false,
+    arrows: false,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
+
   return (
-    <BodyWrapper>
-      <ContentWrapper>
-        <section className="py-16 text-center">
-          <h2 className="text-3xl font-bold text-primary">Gallery</h2>
-          <div className="columns-2 md:columns-3 w-full space-y-4">
-            {galleryImages.map((image, index) => (
-              <div key={image.id} className="shadow-lg w-auto h-auto overflow-hidden group cursor-pointer">
+    <BodyWrapper className="py-16 bg-momo_red text-center relative">
+      <h2 className="text-3xl font-bold text-primary mb-8 text-white">
+        Our Food Gallery
+      </h2>
+      <img
+        src="gallerybg.png"
+        className="w-full h-full absolute inset-0 object-cover"
+      />
+      <div className="px-6">
+        <Slider {...settings}>
+          {images.map((img) => (
+            <div key={img.id} className="px-3 items-center flex flex-col">
+              <div className="shadow-lg rounded-lg overflow-hidden group size-72 ">
                 <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="size-auto object-cover group-hover:scale-125 ease-linear duration-300"
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-            ))}
-          </div>
-        </section>
-      </ContentWrapper>
+              <h3 className="text-white ">{img.alt}</h3>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </BodyWrapper>
   );
 };

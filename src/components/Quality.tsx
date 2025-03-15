@@ -5,11 +5,12 @@ import { FcCheckmark } from "react-icons/fc";
 const Quality = () => {
   return (
     <BodyWrapper
-      className="body-wrapper bg-cover bg-center py-24 px-6 md:px-12 lg:px-20 flex flex-col items-center text-white"
-      background={
-        "url('https://momohut.ca/wp-content/uploads/2022/11/footer_bg_3.jpg')"
-      }
+      className="body-wrapper bg-cover bg-center py-24 px-6 md:px-12 lg:px-20 flex flex-col items-center text-white bg-momo_red relative"
+      // background={
+      //   "url('https://momohut.ca/wp-content/uploads/2022/11/footer_bg_3.jpg')"
+      // }
     >
+      <img src="special-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
       <div className="max-w-3xl text-center">
         <h3 className="text-xs font-bold text-primary uppercase tracking-wider">
           High Standards
@@ -49,9 +50,9 @@ const Quality = () => {
             Commitment to Hygiene & Excellence
           </li>
         </ul>
-        <Button className="mt-8 px-6 py-3 text-lg font-semibold bg-primary text-white rounded-2xl shadow-lg transition-transform hover:scale-105">
+        <button className="mt-8 px-6 py-3 text-lg font-semibold bg-primary rounded-none  rounded-2xl shadow-lg transition-transform hover:scale-105 bg-white text-momo_red">
           View Our Menu
-        </Button>
+        </button>
       </div>
     </BodyWrapper>
   );

@@ -3,13 +3,16 @@ import React, { useState, useEffect } from "react";
 import { BodyWrapper, ContentWrapper } from "@/components/ui/Wrapper";
 import { GiKnifeFork } from "react-icons/gi";
 import MenuSidebar from "./Sidebar";
-import menudata from "./Menu.json";
+import MenuData from "./Menu.json";
+import Button from "@/components/global/Button";
+import { object } from "framer-motion/client";
 
 interface MenuItemProps {
   name: string;
   description: string;
   price: string;
   image: string;
+  variation: object;
 }
 
 interface Category {
@@ -17,6 +20,11 @@ interface Category {
   items: MenuItemProps[];
 }
 
+type MenuDataProps = {
+  [category: string]: MenuItemProps[];
+};
+//@ts-ignore
+const menudata: MenuDataProps = MenuData;
 const MenuSection = () => {
   const categories = Object.keys(menudata);
 
@@ -52,9 +60,11 @@ const MenuSection = () => {
               <span className="font-bold text-2xl my-2">{category}</span>
               <hr className="border-t-2 border-gray-200 mb-8" />
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {menudata[category].map((food, index) => (
-                  <MenuItem item={food} key={index} />
-                ))}
+                {menudata[category].map(
+                  (food: MenuItemProps, index: number) => (
+                    <MenuItemCard item={food} key={index} />
+                  )
+                )}
               </div>
             </div>
           ))}
@@ -62,7 +72,7 @@ const MenuSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {menu.map((item, index) => (
-            <MenuItem item={item} key={index} />
+            <MenuItemCard item={item} key={index} />
           ))}
         </div>
       </ContentWrapper>
@@ -70,17 +80,52 @@ const MenuSection = () => {
   );
 };
 
-const MenuItem = ({ item }: { item: MenuItemProps }) => {
+const MenuItemCard = ({ item }: { item: MenuItemProps }) => {
+  const [quantity, setQuantity] = useState(1);
+  const loadCart = () => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? storedCart : [];
+  };
+
+  const [cart, setCart] = useState(loadCart());
+  const handleAddToCart = (item: MenuItemProps, quantity: number) => {
+    const updatedCart = [...cart, { ...item, quantity }];
+    //@ts-ignore
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save cart to localStorage
+  };
+  const handleIncrement = () => setQuantity((prev) => prev + 1);
+  const handleDecrement = () =>
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+
   return (
-    <div className="flex flex-col items-center bg-white shadow-md rounded-lg overflow-hidden p-4 transition-transform hover:scale-105">
-      <img src={item.image} className="w-32 h-32 object-cover rounded-full" />
-      <h3 className="text-lg font-semibold mt-3">{item.name}</h3>
-      <p className="text-gray-500 text-sm text-center px-2">
-        {item.description}
-      </p>
-      <p className="text-primary font-semibold text-lg mt-2">{item.price}</p>
+    <div className="flex flex-col p-4 border border-gray-300 rounded-lg shadow-md">
+      <h3 className="text-xl font-bold">{item.name}</h3>
+      <p className="text-gray-700">${item.price}</p>
+      <div className="flex items-center mt-4 space-x-2">
+        <div className="flex items-center space-x-2">
+          <button
+            className="px-2 py-1 bg-gray-200 text-gray-700 rounded-md"
+            onClick={handleDecrement}
+          >
+            -
+          </button>
+          <span className="text-lg">{quantity}</span>
+          <button
+            className="px-2 py-1 bg-gray-200 text-gray-700 rounded-md"
+            onClick={handleIncrement}
+          >
+            +
+          </button>
+        </div>
+        <button
+          className="ml-4 px-4 py-2 bg-momo_red text-white rounded-md"
+          onClick={() => handleAddToCart(item, quantity)}
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
-
 export default MenuSection;

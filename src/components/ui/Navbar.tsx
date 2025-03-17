@@ -22,7 +22,7 @@ function NavbarAlternate() {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Menu", path: "/menu" },
-    { name: "Blog", path: "/blog" },
+    // { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,7 +33,9 @@ function NavbarAlternate() {
       window.scrollY >= 100 ? setIsFloating(true) : setIsFloating(false);
     };
   }, []);
-
+  useEffect(() => {
+    console.log(localStorage.getItem("cart"));
+  }, [localStorage]);
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       setActiveLink(url);
@@ -49,7 +51,7 @@ function NavbarAlternate() {
       );
     };
   }, [window.location.pathname]);
-  function isRestaurantOpen(openHour, closeHour) {
+  function isRestaurantOpen(openHour: string, closeHour: string) {
     const now = new Date();
     const currentTime = now.getHours() * 60 + now.getMinutes(); // Convert current time to minutes
 
@@ -152,10 +154,17 @@ function NavbarAlternate() {
                     onClick={() => setMenuOpen(!menuOpen)}
                   />
                 </div>
-                <Button className="flex w-full items-center">
-                  <span>Order Now</span>
-                  <ArrowRight />
-                </Button>
+                <Link
+                  href={
+                    "https://momohut.brygid.online/zgrid/proc/site/sitep.jsp"
+                  }
+                  target="_blank"
+                >
+                  <Button className="flex w-full items-center">
+                    Order Now
+                    <ArrowRight />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

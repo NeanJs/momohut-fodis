@@ -83,17 +83,17 @@ const MenuSection = () => {
 const MenuItemCard = ({ item }: { item: MenuItemProps }) => {
   const [quantity, setQuantity] = useState(1);
   const loadCart = () => {
-    const storedCart = localStorage.getItem("cart");
-    return storedCart ? storedCart : [];
+    // const storedCart = localStorage.getItem("cart");
+    // return storedCart ? storedCart : [];
   };
 
   const [cart, setCart] = useState(loadCart());
-  const handleAddToCart = (item: MenuItemProps, quantity: number) => {
-    const updatedCart = [...cart, { ...item, quantity }];
-    //@ts-ignore
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save cart to localStorage
-  };
+  // const handleAddToCart = (item: MenuItemProps, quantity: number) => {
+  //   const updatedCart = [...cart, { ...item, quantity }];
+  //   //@ts-ignore
+  //   setCart(updatedCart);
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+  // };
   const handleIncrement = () => setQuantity((prev) => prev + 1);
   const handleDecrement = () =>
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -120,7 +120,7 @@ const MenuItemCard = ({ item }: { item: MenuItemProps }) => {
         </div>
         <button
           className="ml-4 px-4 py-2 bg-momo_red text-white rounded-md"
-          onClick={() => handleAddToCart(item, quantity)}
+          // onClick={() => handleAddToCart(item, quantity)}
         >
           Add to Cart
         </button>
